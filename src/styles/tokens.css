@@ -9,7 +9,7 @@
   --container: 1100px;
 }
 
-@media (prefers-color-scheme: light) {
+/*@media (prefers-color-scheme: light) {
   :root {
     --bg: #ffffff;
     --fg: #0b1220;
@@ -17,7 +17,7 @@
     --card: #f8fafc;
     --border: #e5e7eb;
   }
-}
+}*/
 
 * { box-sizing: border-box; }
 html, body, #root { height: 100%; }

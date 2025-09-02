@@ -50,7 +50,7 @@ const Home = () => (
     {/* Hero (nombre actualizado) */}
     <div className="text-center mb-12">
       <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight">
-        Hola, soy <span style={{ color: 'var(--brand)' }}>Jorge</span> 👋
+        Hola, soy <span style={{ color: 'var(--brand)' }}>Jorge!</span> 
       </h1>
     </div>
 
