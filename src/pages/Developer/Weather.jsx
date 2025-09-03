@@ -91,7 +91,7 @@ const Weather = () => {
                 type="text"
                 value={city}
                 onChange={(e) => setCity(e.target.value)}
-                placeholder="Ingresa el nombre de la ciudad..."
+                placeholder="Ciudad"
                 className="flex-1 min-w-0 px-6 py-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900 bg-white/80 backdrop-blur-sm"
               />
               <button
