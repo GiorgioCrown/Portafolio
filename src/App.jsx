@@ -25,7 +25,7 @@ const App = () => (
     </main>
     <footer className="footer">
       <div className="container" style={{ padding: "16px 24px" }}>
-        <small>© {new Date().getFullYear()} Jorge — React + Tailwind + tokens CSS</small>
+        <small>© {new Date().getFullYear()} Jorge — React + Tailwind + Shadcn</small>
       </div>
     </footer>
   </div>
