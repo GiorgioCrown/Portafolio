@@ -68,10 +68,12 @@ const Home = () => (
 
       {/* Data Analyst */}
       <Card title="Data Analyst">
-        <div className="rounded-lg border border-dashed border-[--border] p-6 text-center text-[--muted]">
-          Próximamente: proyectos de análisis de datos, dashboards y ETL.
-        </div>
+        <ul>
+          <li> <Item to="https://colab.research.google.com/drive/1SjPySh0j8cE25v9tHlXa-5NrkdnmY3_x?usp=sharing" label= "League of Leagends Analysis (Python + Pandas + Matplotlib)"/></li>
+        </ul>
+
       </Card>
+      
     </div>
   </section>
 );
