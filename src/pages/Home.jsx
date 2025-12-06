@@ -1,82 +1,131 @@
-import { Link } from "react-router-dom";
+import ProjectCard, {
+  TodosPreview,
+  WeatherPreview,
+  PokedexPreview,
+  CheckoutPreview,
+  DataAnalysisPreview,
+} from "../components/ProjectCard.jsx";
+import TechStackAnimation from "../components/TechStackAnimation.jsx";
 
-const Card = ({ title, children, footer }) => (
-  <div
-    className="
-      bg-[--card] border border-[--border] rounded-[--radius]
-      p-6 shadow-lg shadow-black/30
-      transition-all duration-200 hover:-translate-y-0.5 hover:shadow-xl
-    "
-  >
-    <h3 className="text-xl font-semibold mb-3 text-[--fg]">{title}</h3>
-    <div className="text-[--muted]">{children}</div>
-    {footer ? <div className="mt-4 text-sm text-[--muted]">{footer}</div> : null}
-  </div>
-);
+const Home = () => {
+  const developerProjects = [
+    {
+      title: "To-Do App",
+      description: "Aplicación de tareas con CRUD completo, filtros avanzados y persistencia en localStorage",
+      technologies: ["React", "localStorage", "Hooks"],
+      to: "/todos",
+      preview: TodosPreview,
+      gradient: "from-blue-500 to-cyan-600",
+    },
+    {
+      title: "Weather App",
+      description: "Aplicación del clima con integración de OpenWeatherMap API y pronóstico extendido",
+      technologies: ["React", "API", "OpenWeatherMap"],
+      to: "/weather",
+      preview: WeatherPreview,
+      gradient: "from-sky-400 to-blue-600",
+    },
+    {
+      title: "Checkout Simulator",
+      description: "Simulador de checkout con validaciones de formulario y experiencia de usuario optimizada",
+      technologies: ["React", "Form Validation", "UX"],
+      to: "/checkout",
+      preview: CheckoutPreview,
+      gradient: "from-green-500 to-emerald-600",
+    },
+    {
+      title: "Pokédex",
+      description: "Explorador de Pokémon con búsqueda, paginación y detalles completos usando PokéAPI",
+      technologies: ["React", "PokéAPI", "Pagination"],
+      to: "/pokedex",
+      preview: PokedexPreview,
+      gradient: "from-yellow-500 to-orange-600",
+    },
+  ];
 
-// Item con animaciones: scale/translate + ring accesible + flecha deslizante
-const Item = ({ to, label }) => (
-  <Link
-    to={to}
-    className="
-      group flex items-center justify-between rounded-lg
-      border border-[--border] px-4 py-3
-      transition-all duration-200
-      bg-transparent
-      hover:bg-white/10 hover:backdrop-blur-sm
-      motion-safe:hover:translate-x-0.5 motion-safe:hover:scale-[1.01]
-      active:scale-[0.99]
-      focus-visible:outline-none
-      focus-visible:ring-2 focus-visible:ring-indigo-500/60
-      text-[--fg]
-    "
-  >
-    <span className="font-medium">{label}</span>
-    <span
-      className="
-        text-[--brand] text-sm
-        motion-safe:transition-transform motion-safe:duration-200
-        motion-safe:group-hover:translate-x-1
-      "
-    >
-      Abrir →
-    </span>
-    
-  </Link>
-);
+  const dataProjects = [
+    {
+      title: "League of Legends Analysis",
+      description: "Análisis de datos de League of Legends usando Python, Pandas y Matplotlib",
+      technologies: ["Python", "Pandas", "Matplotlib"],
+      to: "https://colab.research.google.com/drive/1SjPySh0j8cE25v9tHlXa-5NrkdnmY3_x?usp=sharing",
+      preview: DataAnalysisPreview,
+      gradient: "from-purple-500 to-pink-600",
+      external: true,
+    },
+  ];
 
-const Home = () => (
-  <section className="container px-6 py-14">
-    {/* Hero (nombre actualizado) */}
-    <div className="text-center mb-12">
-      <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight">
-        Hola, soy <span style={{ color: 'var(--brand)' }}>Jorge!</span> 
-      </h1>
-    </div>
+  return (
+    <section className="container px-6 py-14">
+      {/* Hero */}
+      <div className="text-center mb-16">
+        <h1 
+          className="text-5xl md:text-6xl lg:text-7xl font-light tracking-tight mb-4"
+          style={{
+            fontFamily: 'system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif',
+            fontWeight: 300,
+            letterSpacing: '-0.02em',
+          }}
+        >
+          <span className="text-[--fg]">Jorge Laureano</span>
+        </h1>
+        <div className="mb-8 space-y-2">
+          <div 
+            className="text-xl md:text-2xl font-light text-[--brand]"
+            style={{
+              fontFamily: 'system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif',
+              fontWeight: 300,
+              textShadow: '0 0 20px rgba(99, 102, 241, 0.5)',
+            }}
+          >
+            Full Stack Developer
+          </div>
+          <div 
+            className="text-xl md:text-2xl font-light text-[--brand]"
+            style={{
+              fontFamily: 'system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif',
+              fontWeight: 300,
+              textShadow: '0 0 20px rgba(99, 102, 241, 0.5)',
+            }}
+          >
+            Data Analyst
+          </div>
+        </div>
+        <div className="mb-16">
+          <TechStackAnimation />
+        </div>
+      </div>
 
-    {/* Grid de 2 columnas */}
-    <div className="grid gap-6 sm:grid-cols-2">
-      {/* Developer */}
-      <Card title="Developer" footer="Más proyectos pronto. Por ahora, estos 4:">
-        <ul className="grid gap-2">
-          <li><Item to="/todos"   label="To-Do App (CRUD + filtros + localStorage)" /></li>
-          <li><Item to="/weather" label="Weather App (OpenWeatherMap)" /></li>
-          <li><Item to="/checkout" label="Checkout Simulator (validaciones + UX)" /></li>
-          <li><Item to="/pokedex" label="Pokédex (PokéAPI)" /></li>
-        </ul>
-      </Card>
+      {/* Sección Developer */}
+      <div className="mb-16">
+        <div className="flex items-center gap-3 mb-8">
+          <h2 className="text-2xl font-bold text-[--fg]">Developer</h2>
+          <div className="flex-1 h-px bg-[--border]"></div>
+          <span className="text-sm text-[--muted]">{developerProjects.length} proyectos</span>
+        </div>
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-2">
+          {developerProjects.map((project, index) => (
+            <ProjectCard key={index} {...project} />
+          ))}
+        </div>
+      </div>
 
-      {/* Data Analyst */}
-      <Card title="Data Analyst">
-        <ul>
-          <li> <Item to="https://colab.research.google.com/drive/1SjPySh0j8cE25v9tHlXa-5NrkdnmY3_x?usp=sharing" label= "League of Leagends Analysis (Python + Pandas + Matplotlib)"/></li>
-        </ul>
-
-      </Card>
-      
-    </div>
-  </section>
-);
+      {/* Sección Data Analyst */}
+      <div>
+        <div className="flex items-center gap-3 mb-8">
+          <h2 className="text-2xl font-bold text-[--fg]">Data Analyst</h2>
+          <div className="flex-1 h-px bg-[--border]"></div>
+          <span className="text-sm text-[--muted]">{dataProjects.length} proyecto</span>
+        </div>
+        <div className="grid gap-6 sm:grid-cols-1 lg:grid-cols-1 max-w-2xl">
+          {dataProjects.map((project, index) => (
+            <ProjectCard key={index} {...project} />
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
 
 export default Home;
 
